@@ -7,15 +7,10 @@
 precision mediump float;
 #endif
 
-#if defined( BUFFER_0 )
-#endif
-
 uniform vec2 u_resolution;
 uniform vec2 u_mouse;
 uniform float u_time;
 uniform sampler2D u_tex0;           // moon -> video
-// uniform sampler2D u_tex1;           // video
-uniform sampler2D u_buffer0;
 
 vec4 timelapseAverage(sampler2D src_c_img, sampler2D src_p_img, vec2 uv, float weight)
 {
