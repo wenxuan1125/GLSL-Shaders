@@ -10,6 +10,7 @@ precision mediump float;
 uniform vec2 u_resolution;
 uniform vec2 u_mouse;
 uniform float u_time;
+uniform sampler2D u_buffer0;
 uniform sampler2D u_tex0;           // moon -> video
 
 vec4 timelapseAverage(sampler2D src_c_img, sampler2D src_p_img, vec2 uv, float weight)
@@ -57,7 +58,7 @@ float texh(in vec2 p, in float str)
     return rz;
 }
 
-
+#if defined(BUFFER_0)
 void main() {
     vec2 uv = gl_FragCoord.xy/u_resolution.xy;				//screen coordinate
     //vec3 color = texture2D(u_tex1, st).rgb;
@@ -70,16 +71,16 @@ void main() {
 
     
 
-    vec4 pixel_color = texture2D(u_tex0, uv);
+    vec4 pixel_color = texture2D(u_buffer0, uv);
     vec3 gray_color0 = vec3(grayScale(pixel_color.rgb));
 
     float h = 5.0;
 
-    vec4 o = texture2D(u_tex0, (gl_FragCoord.xy + vec2( 0, 0))/u_resolution.xy);
-	vec4 n = texture2D(u_tex0, (gl_FragCoord.xy + vec2( 0, h))/u_resolution.xy);
-    vec4 e = texture2D(u_tex0, (gl_FragCoord.xy + vec2( h, 0))/u_resolution.xy);
-    vec4 s = texture2D(u_tex0, (gl_FragCoord.xy + vec2( 0,-h))/u_resolution.xy);
-    vec4 w = texture2D(u_tex0, (gl_FragCoord.xy + vec2(-h, 0))/u_resolution.xy);
+    vec4 o = texture2D(u_buffer0, (gl_FragCoord.xy + vec2( 0, 0))/u_resolution.xy);
+	vec4 n = texture2D(u_buffer0, (gl_FragCoord.xy + vec2( 0, h))/u_resolution.xy);
+    vec4 e = texture2D(u_buffer0, (gl_FragCoord.xy + vec2( h, 0))/u_resolution.xy);
+    vec4 s = texture2D(u_buffer0, (gl_FragCoord.xy + vec2( 0,-h))/u_resolution.xy);
+    vec4 w = texture2D(u_buffer0, (gl_FragCoord.xy + vec2(-h, 0))/u_resolution.xy);
     
     vec4 dy = (n - s)*.5;
     vec4 dx = (e - w)*.5;
@@ -112,4 +113,4 @@ void main() {
 //     gl_FragColor = vec4(col, 1.0);
 }
 
-
+#endif
