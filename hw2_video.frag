@@ -7,10 +7,12 @@
 precision mediump float;
 #endif
 
+
 uniform vec2 u_resolution;
 uniform vec2 u_mouse;
 uniform float u_time;
 uniform sampler2D u_tex0;           // moon -> video
+// uniform sampler2D u_tex1;           // video
 
 vec4 timelapseAverage(sampler2D src_c_img, sampler2D src_p_img, vec2 uv, float weight)
 {
@@ -111,4 +113,5 @@ void main() {
 //     vec3 col=vec3(texh(uv*5.0, info+0.3-breathing*0.3));
 //     gl_FragColor = vec4(col, 1.0);
 }
+
 
