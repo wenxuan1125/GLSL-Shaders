@@ -18,7 +18,7 @@
     </style>
 </head>
 <body>
-    <canvas id="glslCanvas" data-fragment-url="hw2_video.frag" width="800" height="600" data-textures="./data/cat.mp4"></canvas>
+    <canvas id="glslCanvas" data-fragment-url="hw2_video.frag" width="800" height="600"></canvas>
 </body>
 <script>
     var canvas = document.getElementById("glslCanvas");
@@ -30,6 +30,6 @@
     var sandbox_thumbnail = "";
     canvas.style.width = '100%';
     canvas.style.height = '100%';
-    // sandbox.setUniform('u_tex0', "./data/cat.mp4");
+    sandbox.setUniform('u_tex0', "./data/cat.mp4");
 </script>
 </html>
