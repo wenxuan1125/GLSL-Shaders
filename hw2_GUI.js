@@ -78,7 +78,7 @@ function draw() {
 	theShader.setUniform("holeColor", [control.holeColor.r / 255, control.holeColor.g / 255, control.holeColor.b / 255]);
 	// to here
 	
-	rect(width * -0.5, height * -0.5, width, height);
+	rect(windowWidth * -0.5, windowHeight * -0.5, windowWidth, windowHeight);
 
 	// id = (id + 1);
 	// if(id >= NUM_IMG) {id = 0;}
