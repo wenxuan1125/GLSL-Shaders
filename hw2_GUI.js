@@ -1,5 +1,5 @@
 const PIXEL_DENSITY = 2;
-const NUM_IMG = 2;
+const NUM_IMG = 30;
 let theShader;
 let canvas;
 let textureBases = [];
