@@ -37,10 +37,10 @@ window.onload = function() {
 function preload(){
 	theShader = loadShader('vert.glsl', 'hw2.frag');
 	textureBase = loadImage("data/cat_0.jpg");
-	for (let i = 0; i < NUM_IMG; i++) {
+	//for (let i = 0; i < NUM_IMG; i++) {
 
-		textureBases[i] = loadImage("/data/cat_" + i.toString() + ".jpg");
-	}
+	//	textureBases[i] = loadImage("/data/cat_" + i.toString() + ".jpg");
+	//}
 }
 // to here
 
@@ -68,8 +68,8 @@ function draw() {
 
 	// Part 2 - Step 2.3
 	// from here
-	theShader.setUniform("u_tex0", textureBases[id]);
-	// theShader.setUniform("u_tex0", textureBase);
+	// theShader.setUniform("u_tex0", textureBases[id]);
+	theShader.setUniform("u_tex0", textureBase);
 	theShader.setUniform("h", control.hAmount);
 	theShader.setUniform("noiseScale", control.noiseScaleAmount);
 	theShader.setUniform("catColor", [control.catColor.r / 255, control.catColor.g / 255, control.catColor.b / 255]);
