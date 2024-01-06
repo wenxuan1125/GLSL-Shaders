@@ -36,7 +36,7 @@ window.onload = function() {
 // from here
 function preload(){
 	theShader = loadShader('vert.glsl', 'hw2.frag');
-	textureBase = loadImage("/data/cat_sequence/cat_0.jpg");
+	textureBase = loadImage("./data/cat_sequence/cat_0.jpg");
 	// for (let i = 0; i < NUM_IMG; i++) {
 
 	// 	textureBases[i] = loadImage("/data/cat_sequence/cat_" + i.toString() + ".jpg");
