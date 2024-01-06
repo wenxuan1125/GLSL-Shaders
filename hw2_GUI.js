@@ -1,5 +1,5 @@
 const PIXEL_DENSITY = 2;
-const NUM_IMG = 6;
+const NUM_IMG = 300;
 let theShader;
 let canvas;
 let textureBases = [];
@@ -36,11 +36,11 @@ window.onload = function() {
 // from here
 function preload(){
 	theShader = loadShader('vert.glsl', 'hw2.frag');
-	//textureBase = loadImage("data/cat_0.jpg");
-	for (let i = 0; i < NUM_IMG; i++) {
+	textureBase = loadImage("data/cat_49.jpg");
+	//for (let i = 0; i < NUM_IMG; i++) {
 
-		textureBases[i] = loadImage("/data/cat_" + i.toString() + ".jpg");
-	}
+	//	textureBases[i] = loadImage("/data/cat_" + i.toString() + ".jpg");
+	//}
 }
 // to here
 
@@ -68,8 +68,8 @@ function draw() {
 
 	// Part 2 - Step 2.3
 	// from here
-	theShader.setUniform("u_tex0", textureBases[id]);
-	// theShader.setUniform("u_tex0", textureBase);
+	//theShader.setUniform("u_tex0", textureBases[id]);
+	theShader.setUniform("u_tex0", textureBase);
 	theShader.setUniform("h", control.hAmount);
 	theShader.setUniform("noiseScale", control.noiseScaleAmount);
 	theShader.setUniform("catColor", [control.catColor.r / 255, control.catColor.g / 255, control.catColor.b / 255]);
@@ -80,10 +80,10 @@ function draw() {
 	
 	rect(windowWidth * -0.5, windowHeight * -0.5, windowWidth, windowHeight);
 
-	id = (id + 1);
-	if(id >= NUM_IMG) {id = 0;}
+	//id = (id + 1);
+	//if(id >= NUM_IMG) {id = 0;}
 
-	frameRate(12);
+	//frameRate(12);
 	// setTimeout(myMessage, 3000);
 }
 
